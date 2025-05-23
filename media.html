@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThinkAlike – Media</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      color: #093f32;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .section h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: #093f32;
+    }
+
+    .section p {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #4a4a4a;
+    }
+
+    .card-flip {
+      perspective: 1200px;
+      width: 520px;
+      height: 340px;
+      margin: 2.5rem auto;
+      max-width: 98vw;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(.77,0,.18,1);
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    .card-front img, .card-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    .card-flip:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .media-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      scrollbar-width: thin;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 1rem;
+    }
+
+    .media-grid > * {
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+    }
+
+    .media-grid::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .media-grid::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 10px;
+    }
+
+    .media-grid iframe {
+      border-radius: 1rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      max-width: 100%;
+    }
+
+    .flyer-link {
+      display: block;
+      max-width: 300px;
+      border-radius: 1rem;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .flyer-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 1rem;
+    }
+
+    .flyer-link::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.05);
+      transition: background 0.3s ease;
+    }
+
+    .flyer-link:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .flyer-link:hover::after {
+      background: rgba(0,0,0,0.15);
+    }
+
+    .stickers-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem 0;
+      place-items: center;
+    }
+
+    .sticker-wrapper {
+      position: relative;
+      background: white;
+      padding: 1rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transform: rotate(-3deg);
+      transition: transform 0.3s ease;
+    }
+
+    .sticker-wrapper:hover {
+      transform: scale(1.05) rotate(0deg);
+    }
+
+    .sticker-wrapper img {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .section h2 {
+        font-size: 2.2rem;
+      }
+
+      .section p {
+        font-size: 1.1rem;
+      }
+
+      .media-grid iframe {
+        max-width: 90vw;
+      }
+
+      .card-flip {
+        width: 100%;
+        height: 220px;
+        max-width: 98vw;
+        min-width: 0;
+        margin: 1.5rem auto;
+      }
+
+      .card-inner {
+        height: 100%;
+        min-height: 0;
+      }
+
+      .card-front img, .card-back img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <img src="assets/logo.png" class="logo" />
+  </div>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
+    <i class="bi bi-list"></i>
+  </button>
+  <nav class="nav" id="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="teams.html">Team</a>
+    <a href="product.html">Product</a>
+    <a href="media.html" class="active">Media</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="section" data-aos="fade-up">
+  <h2>Promotional Videos</h2>
+  <p>Watch our short presentations and discover how Generator helps educators and institutions elevate their content creation process.</p>
+  <div class="media-grid">
+    <iframe width="400" height="225" src="https://www.youtube.com/embed/-lFiv4iyR7E" frameborder="0" allowfullscreen></iframe>
+    <iframe width="400" height="225" src="https://www.youtube.com/embed/UtESVx3SnMw" frameborder="0" allowfullscreen></iframe>
+  </div>
+</section>
+
+<section class="section" data-aos="fade-up">
+  <h2>Flyers</h2>
+  <p>Our flyers communicate our core vision through clear visual language, used to present Generator during conferences and outreach events.</p>
+  <div class="media-grid">
+    <a href="assets/media/Flyer1.png" download class="flyer-link">
+      <img src="assets/media/Flyer1.png" alt="Flyer 1">
+    </a>
+    <a href="assets/media/Flyer2.png" download class="flyer-link">
+      <img src="assets/media/Flyer2.png" alt="Flyer 2">
+    </a>
+    <a href="assets/media/Flyer3.png" download class="flyer-link">
+      <img src="assets/media/Flyer3.png" alt="Flyer 3">
+    </a>
+    <a href="assets/media/Flyer4.png" download class="flyer-link">
+      <img src="assets/media/Flyer4.png" alt="Flyer 4">
+    </a>
+  </div>
+</section>
+
+<section class="section" data-aos="fade-up">
+  <h2>Business Card</h2>
+  <p>Simple, elegant and always available — our business card reflects the professionalism and innovation of ThinkAlike. Flip to see both sides.</p>
+  <div class="card-flip">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="assets/media/front.png" alt="Business Card Front">
+      </div>
+      <div class="card-back">
+        <img src="assets/media/back.png" alt="Business Card Back">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" data-aos="fade-up">
+  <h2>Stickers & Pens</h2>
+  <p>We designed exclusive ThinkAlike stickers and pens to strengthen brand recognition in a playful and memorable way. Here’s a closer look.</p>
+  <div class="stickers-showcase">
+    <div class="sticker-wrapper">
+      <img src="assets/media/stickers.png" alt="ThinkAlike Stickers">
+    </div>
+    <div class="sticker-wrapper">
+      <img src="assets/media/pen.png" alt="ThinkAlike Pen">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p style="text-align:center; padding: 2rem 0; color: #999">&copy; 2025 ThinkAlike. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init();</script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThinkAlike – Product</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      color: #093f32;
+    }
+
+
+    .product-hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .product-hero-text {
+      flex: 1;
+      max-width: 550px;
+    }
+
+    .product-hero-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-hero-text p {
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .product-graphic {
+      flex: 1;
+      text-align: center;
+    }
+
+    .product-graphic img {
+      max-width: 90%;
+    }
+
+    .features-section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .feature i {
+      font-size: 2rem;
+      color: #33BFEB;
+      margin-bottom: 1rem;
+    }
+
+    .feature h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      color: #093f32;
+    }
+
+    .feature p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <img src="assets/logo.png" class="logo" />
+  </div>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
+    <i class="bi bi-list"></i>
+  </button>
+  <nav class="nav" id="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="teams.html">Team</a>
+    <a href="product.html" class="active">Product</a>
+    <a href="media.html">Media</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+  <section class="product-hero">
+    <div class="product-hero-text">
+      <h1>Introducing Generator</h1>
+      <p>
+        Generator is our AI-powered tool that helps educators and institutions create personalized educational content quickly and efficiently. From multiple choice questions to realistic scenarios and detailed summaries, Generator delivers what you need — fast.
+      </p>
+    </div>
+    <div class="product-graphic">
+      <img src="assets/robot.png" alt="Generator">
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="features-grid">
+      <div class="feature">
+        <i class="bi bi-bar-chart-line"></i>
+        <h3>Scalable</h3>
+        <p>Generate thousands of questions in seconds, tailored to your needs.</p>
+      </div>
+      <div class="feature">
+        <i class="bi bi-sliders"></i>
+        <h3>Personalized</h3>
+        <p>Customize topic, difficulty, format, and more — before or after generation.</p>
+      </div>
+      <div class="feature">
+        <i class="bi bi-folder2-open"></i>
+        <h3>Organized</h3>
+        <p>Use folders to keep your content structured and easily accessible.</p>
+      </div>
+      <div class="feature">
+        <i class="bi bi-file-earmark-arrow-down"></i>
+        <h3>Exportable</h3>
+        <p>Download content in PDF, Excel, JSON, CSV, or Moodle XML formats.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 ThinkAlike. All rights reserved.
+  </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
